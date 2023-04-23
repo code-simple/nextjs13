@@ -1,5 +1,4 @@
 "use client";
-
 import useSWR from "swr";
 
 const fetcher = (path) =>
@@ -9,7 +8,6 @@ const fetcher = (path) =>
 
 export default function Dashboard() {
   const users = useSWR("/users", fetcher);
-  console.log(users);
   if (users.isLoading) return <h1>Loading...</h1>;
   return (
     <>
@@ -20,7 +18,7 @@ export default function Dashboard() {
     </>
   );
 }
-
+// TODO: NextJs saying this method is not prefered , as it result multiple re-renders. let discuss this
 // Alternative Method : Recommended by NextJs13 Docs
 // const api = "https://jsonplaceholder.typicode.com/users";
 
